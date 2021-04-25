@@ -423,6 +423,7 @@ class Day extends React.Component {
                 okCallback: () => {},
                 noCallback: () => {},
             },
+            employerViewFiler: "no",
             onUpdateEmployer: this.onUpdateEmployer,
             onUpdatePosition: this.onUpdatePosition,
             onPositionEmployerDelete: this.onPositionEmployerDelete,
@@ -716,6 +717,12 @@ class Day extends React.Component {
         }
     }
 
+    onEmployerFilerChange = (e) => {
+        this.setState({
+            employerViewFiler: e.target.value
+        });
+    }
+
     render() {
         return (
             <Container>
@@ -764,15 +771,45 @@ class Day extends React.Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col sm={3} className="border-right">
-                        {this.sortEmployers(Object.values(this.state.employers)).map((value) => {
-                            return (
-                                <EmployerView key={value.entityId}
-                                            employer={value}
-                                            clickSelect={true}
-                                            context={this.state}/>
-                            );
-                        })}
+                    <Col sm={3}>
+                        <Row>
+                            <Form.Control onChange={this.onEmployerFilerChange} size="sm" as="select">
+                                <option value="no">No filter</option>
+                                <option value="no_first">Empty day</option>
+                                <option value="no_positions">No positions</option>
+                            </Form.Control>
+                        </Row>
+                        <Row className="border-right">
+                            <Col>
+                                {this.sortEmployers(Object.values(this.state.employers)).map((value) => {
+                                    var to_show = true;
+
+                                    if(this.state.employerViewFiler == "no_first"){
+                                        var full_day = false;
+                                        value.positions.map((a) => {
+                                            if(this.state.positions[a].positionCapacity == 1 || this.state.positions[a].positionCapacity == 3){
+                                                to_show = false;
+                                            }
+                                        });
+                                    }
+
+                                    if(this.state.employerViewFiler == "no_positions"){
+                                        if(value.positions.length > 0){
+                                            to_show = false;
+                                        }
+                                    }
+
+                                    if(to_show){
+                                        return (
+                                            <EmployerView key={value.entityId}
+                                                        employer={value}
+                                                        clickSelect={true}
+                                                        context={this.state}/>
+                                        );
+                                    }
+                                })}
+                            </Col>
+                        </Row>
                     </Col>
                     <Col sm={9}>
                         <Tabs>
