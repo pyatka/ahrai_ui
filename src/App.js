@@ -53,7 +53,7 @@ function About() {
 function App() {
     return (
         <ApolloProvider client={client}>
-            <Router>
+            <Router basename="/app">
             <div className="App">
                 <div style={{ flex: 1, padding: "10px" }}>
                 <Switch>
