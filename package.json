@@ -32,7 +32,7 @@
     "startbootstrap-simple-sidebar": "^5.1.3",
     "web-vitals": "^1.1.1"
   },
-  "homepage": "http://ahrai.online/app",
+  "homepage": "http://ahrai.online",
   "scripts": {
     "start": "react-scripts start",
     "build": "BUILD_PATH='/var/www/ahrai_ui' react-scripts build",
