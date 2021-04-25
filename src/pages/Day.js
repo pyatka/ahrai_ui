@@ -687,11 +687,19 @@ class Day extends React.Component {
     }
 
     onDateChange = (date) => {
-        let link = "/day"
+        let link = "/app/day";
         link = link + "/" + date.getDate();
         link = link + "/" + (date.getMonth() + 1);
         link = link + "/" + date.getFullYear();
         window.location = link;
+    }
+
+    onPrintClick = () => {
+        let link = "/api/render";
+        link = link + "/" + this.state.day;
+        link = link + "/" + this.state.month;
+        link = link + "/" + this.state.year;
+        window.open(link, '_blank').focus();
     }
 
     getTopAlert = () => {
@@ -741,7 +749,7 @@ class Day extends React.Component {
                     <Col sm={1}>
                         <ButtonGroup>
                             <DropdownButton as={ButtonGroup} title={<FontAwesomeIcon icon={faCog} />} size="lg" id="bg-nested-dropdown">
-                                <Dropdown.Item eventKey="1">Print</Dropdown.Item>
+                                <Dropdown.Item eventKey="1" onClick={this.onPrintClick}>Print</Dropdown.Item>
                             </DropdownButton>
                         </ButtonGroup>
                     </Col>
