@@ -192,7 +192,9 @@ class PositionView extends React.Component{
         const inputLength = inputValue.length;
 
         return inputLength === 0 ? [] : Object.values(this.props.context.employers).filter(a =>
-            a.name.toLowerCase().slice(0, inputLength) === inputValue
+            a.name.toLowerCase().slice(0, inputLength) === inputValue && this.state.position.employers.findIndex((v) => {
+                return v.entityId == a.entityId
+            }) == -1
         );
     }
 
