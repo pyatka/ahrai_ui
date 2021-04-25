@@ -1,0 +1,6 @@
+query ($entityId: Int){
+  employer(entityId: $entityId){
+    name,
+    surname
+  }
+}

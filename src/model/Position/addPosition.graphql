@@ -1,0 +1,6 @@
+mutation addPosition($name: String, $positionGroup: Int, $positionCapacity: Int, $defaultShow: Boolean, $onePosition: Boolean) {
+    addPosition(name: $name, positionGroup: $positionGroup, defaultShow: $defaultShow, onePosition: $onePosition, positionCapacity: $positionCapacity) {
+        success,
+        entityId
+    }
+}

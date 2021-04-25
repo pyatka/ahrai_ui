@@ -1,0 +1,5 @@
+mutation updateEmployer ($name: String, $surname: String, $entityId: Int) {
+    updateEmployer(name: $name, surname: $surname, entityId: $entityId) {
+        success
+    }
+}

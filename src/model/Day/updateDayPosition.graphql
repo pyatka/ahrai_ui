@@ -1,0 +1,6 @@
+mutation updateDayPosition($dayId: Int, $positionId: Int, $defaultShow: Boolean, $comment: String) {
+    updateDayPosition(dayId: $dayId, positionId: $positionId, defaultShow: $defaultShow, comment: $comment) {
+        success,
+        entityId
+    }
+}

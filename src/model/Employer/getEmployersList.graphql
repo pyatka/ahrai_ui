@@ -1,0 +1,6 @@
+{
+    employers {
+        entityId,
+        name
+    }
+}

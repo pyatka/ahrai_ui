@@ -1,0 +1,6 @@
+mutation authEmployer ($email: String, $password: String) {
+    authEmployer(email: $email, password: $password) {
+        success,
+        token
+    }
+}

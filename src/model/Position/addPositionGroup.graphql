@@ -1,0 +1,6 @@
+mutation addPositionGroup ($name: String) {
+    addPositionGroup(name: $name) {
+        success,
+        entityId
+    }
+}

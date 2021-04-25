@@ -1,0 +1,10 @@
+mutation addPositionEmployer($dayId: Int, $positionId: Int, $orderView: Int, $employerId: Int) {
+    addPositionEmployer(dayId: $dayId, positionId: $positionId, orderView: $orderView, employerId: $employerId) {
+        success,
+        entityId,
+        alerts {
+            type,
+            message
+        }
+    }
+}

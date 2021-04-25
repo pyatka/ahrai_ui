@@ -1,0 +1,10 @@
+mutation deletePositionEmployer($dayId: Int, $positionId: Int, $employerId: Int) {
+    deletePositionEmployer(dayId: $dayId, positionId: $positionId, employerId: $employerId) {
+        success,
+        entityId,
+        alerts {
+            type,
+            message
+        }
+    }
+}

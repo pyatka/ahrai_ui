@@ -1,0 +1,15 @@
+query {
+  positions {
+    entityId,
+    name,
+    onePosition,
+    defaultShow,
+    positionCapacity,
+    viewOrder,
+    positionGroup {
+      entityId,
+      viewOrder,
+      name
+    }
+  }
+}

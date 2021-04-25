@@ -1,0 +1,6 @@
+mutation switchPositionEmployerOrder($dayId: Int, $positionId: Int, $firstId: Int, $secondId: Int) {
+    switchPositionEmployerOrder(dayId: $dayId, positionId: $positionId, firstId: $firstId, secondId: $secondId) {
+        success,
+        entityId
+    }
+}
