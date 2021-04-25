@@ -22,8 +22,10 @@ import { client } from './Client';
 const Test = loader('./model/test.graphql');
 
 const PrivateRoute = function ({ component: Component, ...rest }) {
-    const { loading, error, data } = useQuery(Test);
-  
+    const { loading, error, data } = useQuery(Test, {
+      fetchPolicy: "no-cache"
+    });
+
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :(</p>;
   
