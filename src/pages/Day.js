@@ -60,7 +60,7 @@ class EmployerView extends React.Component {
         return (
             <Row style={{cursor: 'pointer'}} onClick={this.onEmployerClick}>
                 <Col className="text-left">
-                    {this.state.employer.name}
+                    {this.state.employer.surname}
                     {badges.map((b) => {
                         return b;
                     })}
@@ -154,7 +154,7 @@ class EmployerInPosition extends React.Component {
         return(
             <Row>
                 <Col>
-                    {this.state.context.employers[this.state.employerId].name}
+                    {this.state.context.employers[this.state.employerId].surname}
                 </Col>
                 <Col sm={1}>
                     <Button onClick={this.onDeleteClick} size="sm" variant="danger">
@@ -192,7 +192,7 @@ class PositionView extends React.Component{
         const inputLength = inputValue.length;
 
         return inputLength === 0 ? [] : Object.values(this.props.context.employers).filter(a =>
-            a.name.toLowerCase().slice(0, inputLength) === inputValue && this.state.position.employers.findIndex((v) => {
+            a.surname.toLowerCase().slice(0, inputLength) === inputValue && this.state.position.employers.findIndex((v) => {
                 return v.entityId == a.entityId
             }) == -1
         );
@@ -292,7 +292,7 @@ class PositionView extends React.Component{
             if(isInOther !== null){
                 let ap = this.state.context.positions[isInOther];
                 this.state.context.onModalAlertShow("Are you shure?", 
-                                                    e.name + " will be deleted from " 
+                                                    e.surname + " will be deleted from " 
                                                     + ap.positionGroup.name + ": " + ap.name,
                                                     () => {
                                                         this.state.context.onPositionEmployerDelete(ap.entityId, suggestion.entityId);
@@ -359,7 +359,7 @@ class PositionView extends React.Component{
                                 suggestions={this.state.suggestions}
                                 onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
                                 onSuggestionsClearRequested={() => { this.setState({suggestions: []}) }}
-                                getSuggestionValue={(suggestion) => suggestion.name}
+                                getSuggestionValue={(suggestion) => suggestion.surname}
                                 renderSuggestion={this.renderEmployerSuggestion}
                                 inputProps={inputProps}
                                 onSuggestionSelected={this.onSuggestionSelect}
@@ -814,7 +814,7 @@ class Day extends React.Component {
                     <Col sm={9}>
                         <Tabs>
                             {this.state.positionGroups.map((value) => {
-                                return <Tab key={value.entityId} eventKey={value.entityId} title={value.name}>
+                                return <Tab key={value.entityId} eventKey={value.entityId} title={value.surname}>
                                     <PositionGroupTabView positionGroup={value} context={this.state}/>
                                 </Tab>;
                             })}

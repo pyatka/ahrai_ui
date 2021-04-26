@@ -1,11 +1,19 @@
 import React from 'react';
-import Sidebar from './SideBar.js'
+import Sidebar from './SideBar.js';
+
+import { Container, Row, Col } from 'react-bootstrap';
 
 function Home() {
     return (
-        <div>
-            <Sidebar />
-        </div>
+        <Container>
+            <Row>
+                <Col sm={3}>
+                    <Sidebar />
+                </Col>
+                <Col sm={9}>
+                </Col>
+            </Row>
+        </Container>
     );
 }
 
