@@ -304,6 +304,29 @@ class PositionView extends React.Component{
             } else {
                 this.addEmployer(p, e, suggestion);
             }
+        } else if (p.positionCapacity == 3 && e.positions.length > 0) {
+            var pString = "";
+            e.positions.map((ep, i) => {
+                let a = this.state.context.positions[ep];
+                pString += a.name;
+                // pString += a.positionGroup.name + ":" + a.name;
+                if (i < e.positions.length - 1){
+                    pString += ", "
+                }
+            });
+
+            this.state.context.onModalAlertShow("Are you shure?", 
+                                                    e.surname + " will be deleted from " 
+                                                    + pString,
+                                                    () => {
+                                                        e.positions.map((ep) => {
+                                                            this.state.context.onPositionEmployerDelete(ep, suggestion.entityId);
+                                                        });
+                                                        this.addEmployer(p, e, suggestion);
+                                                    },
+                                                    () => {
+                                                        this.onBlur();
+                                                    });
         } else {
             this.addEmployer(p, e, suggestion)
         }
