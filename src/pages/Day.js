@@ -814,7 +814,7 @@ class Day extends React.Component {
                     <Col sm={9}>
                         <Tabs>
                             {this.state.positionGroups.map((value) => {
-                                return <Tab key={value.entityId} eventKey={value.entityId} title={value.surname}>
+                                return <Tab key={value.entityId} eventKey={value.entityId} title={value.name}>
                                     <PositionGroupTabView positionGroup={value} context={this.state}/>
                                 </Tab>;
                             })}
