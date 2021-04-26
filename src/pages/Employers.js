@@ -12,7 +12,7 @@ const GetEmployersList = loader('../model/Employer/getEmployersList.graphql');
 function EmployerView(e){
     return (<Row key={e.entityId} style={{ padding: '20px' }}>
         <Col>
-            <Row>{e.name}</Row>
+            <Row>{e.surname}</Row>
         </Col>
         <Col>
             <Row className="float-sm-right">
