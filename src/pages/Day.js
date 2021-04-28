@@ -774,47 +774,23 @@ class Day extends React.Component {
                         <FontAwesomeIcon icon={faHome} />
                     </Navbar.Brand>
                     <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
-                        <NavDropdown title="Day" id="basic-nav-dropdown">
-                            <NavDropdown.Item onClick={this.onPrintClick}>Print</NavDropdown.Item>
-                        </NavDropdown>
-                    </Nav>
-                    <Nav className="mr-auto">
-                        {this.getTopAlert()}
-                    </Nav>
-                    <Form inline>
-                        <DatePicker customInput={<Form.Control type="text" />}
-                                    selected={ this.state.date } 
-                                    todayButton="Today"
-                                    onChange={this.onDateChange} 
-                                    dateFormat="dd/MM/yyyy" />
-                    </Form>
-                </Navbar.Collapse>
+                        <Nav className="mr-auto">
+                            <NavDropdown title="Day" id="basic-nav-dropdown">
+                                <NavDropdown.Item onClick={this.onPrintClick}>Print</NavDropdown.Item>
+                            </NavDropdown>
+                        </Nav>
+                        <Nav className="mr-auto">
+                            {this.getTopAlert()}
+                        </Nav>
+                        <Form inline>
+                            <DatePicker customInput={<Form.Control type="text" />}
+                                        selected={ this.state.date } 
+                                        todayButton="Today"
+                                        onChange={this.onDateChange} 
+                                        dateFormat="dd/MM/yyyy" />
+                        </Form>
+                    </Navbar.Collapse>
                 </Navbar>
-                {/* <Row style={{minHeight: '60px'}}>
-                    <Col sm={1}>
-                        <Link to="/" className="btn btn-primary btn-lg">
-                            <FontAwesomeIcon icon={faHome} />
-                        </Link>
-                    </Col>
-                    <Col sm={8}>
-                        {this.getTopAlert()}
-                    </Col>
-                    <Col sm={1}>
-                        <ButtonGroup>
-                            <DropdownButton as={ButtonGroup} title={<FontAwesomeIcon icon={faCog} />} size="lg" id="bg-nested-dropdown">
-                                <Dropdown.Item eventKey="1" onClick={this.onPrintClick}>Print</Dropdown.Item>
-                            </DropdownButton>
-                        </ButtonGroup>
-                    </Col>
-                    <Col sm={2}>
-                        <DatePicker customInput={<Form.Control type="text" />}
-                                    selected={ this.state.date } 
-                                    todayButton="Today"
-                                    onChange={this.onDateChange} 
-                                    dateFormat="dd/MM/yyyy" />
-                    </Col>
-                </Row> */}
                 <Row>
                     <Col sm={3}>
                         <Row>
