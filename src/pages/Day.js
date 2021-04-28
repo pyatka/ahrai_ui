@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Redirect, Link } from "react-router-dom";
 
-import { Container, Row, Button, Col, Form, Tabs, Tab, Badge, Alert, Modal, ButtonGroup, DropdownButton, Dropdown } from 'react-bootstrap';
+import { Container, Row, Button, Col, Form, Tabs, Tab, Badge, Alert, Modal, ButtonGroup, DropdownButton, Dropdown, Navbar, Nav, NavDropdown, FormControl } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt, faChevronLeft, faChevronRight, faHome, faCog } from '@fortawesome/fontawesome-free-solid';
@@ -769,7 +769,29 @@ class Day extends React.Component {
                         </Button>
                     </Modal.Footer>
                 </Modal>
-                <Row style={{minHeight: '60px'}}>
+                <Navbar expand="lg" variant="light" bg="light">
+                    <Navbar.Brand href="/app">
+                        <FontAwesomeIcon icon={faHome} />
+                    </Navbar.Brand>
+                    <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mr-auto">
+                        <NavDropdown title="Day" id="basic-nav-dropdown">
+                            <NavDropdown.Item onClick={this.onPrintClick}>Print</NavDropdown.Item>
+                        </NavDropdown>
+                    </Nav>
+                    <Nav className="mr-auto">
+                        {this.getTopAlert()}
+                    </Nav>
+                    <Form inline>
+                        <DatePicker customInput={<Form.Control type="text" />}
+                                    selected={ this.state.date } 
+                                    todayButton="Today"
+                                    onChange={this.onDateChange} 
+                                    dateFormat="dd/MM/yyyy" />
+                    </Form>
+                </Navbar.Collapse>
+                </Navbar>
+                {/* <Row style={{minHeight: '60px'}}>
                     <Col sm={1}>
                         <Link to="/" className="btn btn-primary btn-lg">
                             <FontAwesomeIcon icon={faHome} />
@@ -792,7 +814,7 @@ class Day extends React.Component {
                                     onChange={this.onDateChange} 
                                     dateFormat="dd/MM/yyyy" />
                     </Col>
-                </Row>
+                </Row> */}
                 <Row>
                     <Col sm={3}>
                         <Row>
