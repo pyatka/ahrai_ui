@@ -354,7 +354,7 @@ class PositionView extends React.Component{
         };
 
         return (
-            <Row style={{ marginBottom: '20px', padding: '5px' }}>
+            <Row style={{ marginBottom: '20px', padding: '5px' }} className="border-bottom">
                 <Col style={{ marginBottom: '10px' }}>
                     <Row style={{ marginBottom: '5px' }}>
                         <Col sm={1}>
@@ -791,7 +791,7 @@ class Day extends React.Component {
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
-                <Row>
+                <Row style={{marginTop: '10px'}}>
                     <Col sm={3}>
                         <Row>
                             <Form.Control onChange={this.onEmployerFilerChange} size="sm" as="select">
