@@ -798,6 +798,7 @@ class Day extends React.Component {
                                 <option value="no">No filter</option>
                                 <option value="no_first">Empty day</option>
                                 <option value="no_positions">No positions</option>
+                                <option value="only_day">Only day</option>
                             </Form.Control>
                         </Row>
                         <Row className="border-right">
@@ -806,9 +807,16 @@ class Day extends React.Component {
                                     var to_show = true;
 
                                     if(this.state.employerViewFiler == "no_first"){
-                                        var full_day = false;
                                         value.positions.map((a) => {
                                             if(this.state.positions[a].positionCapacity == 1 || this.state.positions[a].positionCapacity == 3){
+                                                to_show = false;
+                                            }
+                                        });
+                                    }
+
+                                    if(this.state.employerViewFiler == "only_day"){
+                                        value.positions.map((a) => {
+                                            if(this.state.positions[a].positionCapacity != 1){
                                                 to_show = false;
                                             }
                                         });
