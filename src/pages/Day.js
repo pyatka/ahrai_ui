@@ -334,6 +334,8 @@ class PositionView extends React.Component{
                                                     () => {
                                                         this.onBlur();
                                                     });
+            } else {
+                this.addEmployer(p, e, suggestion);
             }
         } else {
             this.addEmployer(p, e, suggestion)
