@@ -306,8 +306,14 @@ class PositionView extends React.Component{
             }
         } else if (p.positionCapacity == 3 && e.positions.length > 0) {
             var pString = "";
+            var toDisable = false;
             e.positions.map((ep, i) => {
                 let a = this.state.context.positions[ep];
+
+                if(a.positionCapacity != 2){
+                    toDisable = true;
+                }
+
                 pString += a.name;
                 // pString += a.positionGroup.name + ":" + a.name;
                 if (i < e.positions.length - 1){
@@ -315,7 +321,8 @@ class PositionView extends React.Component{
                 }
             });
 
-            this.state.context.onModalAlertShow("Are you shure?", 
+            if(toDisable) {
+                this.state.context.onModalAlertShow("Are you shure?", 
                                                     e.surname + " will be deleted from " 
                                                     + pString,
                                                     () => {
@@ -327,6 +334,7 @@ class PositionView extends React.Component{
                                                     () => {
                                                         this.onBlur();
                                                     });
+            }
         } else {
             this.addEmployer(p, e, suggestion)
         }
